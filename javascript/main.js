@@ -1,19 +1,17 @@
-/* 1. Grab the input value */
+/* 1. Obetener el input */
 var input;
 
 document.querySelector(".js-go").addEventListener('click', function () {
 
     input = document.querySelector("input").value;
     console.log(input);
-
 });
 
-
-/* 2. do the data stuff with the API */
+/* 2. Llamar la API */
 
 var url = "https://api.giphy.com/v1/gifs/search?api_key=HsdndAAeztqsmgGVBlrXavpjIoeADOCf&q=" + input + "&limit=25&offset=0&rating=g&lang=en";
 console.log(input);
-// AJAX Request
+
 var GiphyAJAXCall = new XMLHttpRequest();
 GiphyAJAXCall.open('GET', url);
 GiphyAJAXCall.send();
@@ -22,11 +20,9 @@ GiphyAJAXCall.addEventListener('load', function (e) {
     var data = e.target.response;
     console.log(data);
     pushToDOM(data);
-
 });
 
-/* 3. Show me the GIFs */
-
+/* 3. Mostrar los GIFS */
 
 function pushToDOM(value) {
 
@@ -40,9 +36,6 @@ function pushToDOM(value) {
 
         var src = image.images.fixed_height.url;
 
-
         container.innerHTML += "<img src=\"" + src + "\" class=\"container-image\">";
-
     });
-
 }
