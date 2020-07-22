@@ -1,8 +1,16 @@
 /* 1. Obetener el input */
+let container = document.querySelector(".js-container");
+
+
 
 document.querySelector(".js-go").addEventListener('click', function () {
 
     var input = document.querySelector("input").value;
+
+    /*Elimina todos los nodos hijos de container al hacer otra busqueda*/
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     /* 2. Llamar la API */
 
@@ -25,8 +33,6 @@ function pushToDOM(value) {
     var response = JSON.parse(value);
 
     var imageUrls = response.data;
-
-    var container = document.querySelector(".js-container");
 
     imageUrls.forEach(function (image) {
 
