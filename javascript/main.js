@@ -3,12 +3,10 @@
 document.querySelector(".js-go").addEventListener('click', function () {
 
     var input = document.querySelector("input").value;
-    console.log(input);
-    var url = "https://api.giphy.com/v1/gifs/search?api_key=HsdndAAeztqsmgGVBlrXavpjIoeADOCf&q=" + input + "&limit=25&offset=0&rating=g&lang=en";
-    console.log(input);
 
     /* 2. Llamar la API */
 
+    var url = "https://api.giphy.com/v1/gifs/search?api_key=HsdndAAeztqsmgGVBlrXavpjIoeADOCf&q=" + input + "&limit=25&offset=0&rating=g&lang=en";
     var GiphyAJAXCall = new XMLHttpRequest();
     GiphyAJAXCall.open('GET', url);
     GiphyAJAXCall.send();
